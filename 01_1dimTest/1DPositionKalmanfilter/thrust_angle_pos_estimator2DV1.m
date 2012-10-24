@@ -130,7 +130,9 @@ pos_plot_x(pos_plot_x==0) = NaN;
 pos_plot_y = pos_mask_y.*z_y(1,:);
 pos_plot_y(pos_plot_y==0) = NaN;
 
-%%
+%% 3D plot
+figure('units','normalized','outerposition',[0 0 1 1])
+figure(1);
 plot3(xt,x_original_y(1,:),x_original_x(1,:))
 hold on
 plot3(xt,z_y(1,:),z_x(1,:),'g');
@@ -143,4 +145,33 @@ zlabel('X Pos')
 grid on
 legend('original','gauss-noise measurement','estimate');
 
+%% single axis plot
+% x
+figure('units','normalized','outerposition',[0 0 1 1])
+figure(2);
+subplot(3,2,1);
+plot(xt,x_original_x(1,:),xt,z_x(1,:),xt,x_x(1,:),xt,pos_plot_x,'mo');
+ylabel('X Pos');
+legend('original','gauss-noise measurement','estimate');
+subplot(3,2,3);
+plot(xt,x_original_x(2,:),xt,x_x(2,:),'r');
+ylabel('X Vel');
+legend('original','estimate');
+subplot(3,2,5);
+plot(xt,u_x*F_x);
+ylabel('Force input [N]');
 
+% y
+%figure('units','normalized','outerposition',[0 0 1 1])
+figure(2);
+subplot(3,2,2);
+plot(xt,x_original_y(1,:),xt,z_y(1,:),xt,x_y(1,:),xt,pos_plot_y,'mo');
+ylabel('Y Pos');
+legend('original','gauss-noise measurement','estimate');
+subplot(3,2,4);
+plot(xt,x_original_y(2,:),xt,x_y(2,:),'r');
+ylabel('Y Vel');
+legend('original','estimate');
+subplot(3,2,6);
+plot(xt,u_y*F_y);
+ylabel('Force input [N]');
