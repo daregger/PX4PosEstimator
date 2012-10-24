@@ -1,0 +1,43 @@
+function [x_aposteriori,P_aposteriori] = positionKalmanFilter1D(x_aposteriori_k,P_aposteriori_k,velocity_observe,gps_update,acc,z,sigma,q,dt)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kalman Filter for Position Estimator from Acc + GPS
+% 
+% state_vector x_aposteriori_k = [pos vel]'
+% P_aposteriori_k = P
+% velocitiy_observe = vo
+% gps_update = u
+% acc = a
+% z = [pos_meas vel_meas]
+% sigma = [sigma1 sigma2]
+% q = [q(1) q(2)]'
+% dt
+% $Author: Damian Aregger $    $Date: 2012 $    $Revision: 1 $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+
+    % process noise variance
+    Q = [q(1)^2*dt 0; 0 q(2)^2*dt];
+    % measurement noise variance
+    R = [sigma(1)^2 0; 0 sigma(2)^2];
+    % system description
+    A = [1 dt; 0 1];
+    B = [0 acc]';
+    % decide if velocity can be observed
+    if velocity_observe == 0
+        H = [1 0; 0 0];
+    else
+        H = [1 0; 0 1];
+    end
+    %% Main Filter step
+    %Step 1 prediction/a priori
+    x_apriori = A*x_aposteriori_k+B;                 %project state ahead
+    P_apriori = A*P_aposteriori_k*A'+Q;                    %project error covariance ahead
+    %Step 2 correction/a posteriori
+    if gps_update == 1
+        K = P_apriori*H'*inv(H*P_apriori*H+R);              %compute kalman gain
+        x_aposteriori = x_apriori+K*(z-H*x_apriori);        %update estimate via z
+        P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
+    else
+       x_aposteriori = x_apriori;
+       P_aposteriori = P_apriori;
+    end  
+end
