@@ -43,7 +43,7 @@
 %     end  
 % end
 
-function [x_aposteriori,P_aposteriori] = positionKalmanFilter1D(x_aposteriori_k,P_aposteriori_k,velocity_observe,gps_update,acc,z,sigma,q,dt)
+function [x_aposteriori,P_aposteriori] = positionKalmanFilter1DONLYPOS(x_aposteriori_k,P_aposteriori_k,velocity_observe,gps_update,acc,z,sigma,q,dt)
 
 
 
@@ -64,20 +64,15 @@ function [x_aposteriori,P_aposteriori] = positionKalmanFilter1D(x_aposteriori_k,
     % process noise variance
     Q = [q(1)^2*dt 0; 0 q(2)^2*dt];
     % measurement noise variance
-    %R_full = [sigma(1)^2 0; 0 sigma(2)^2];
-    R_full = [sigma(1)^2 0; 0 sigma(2)^2];
+    R_full = sigma(1);
     % system description
     A = [1 dt; 0 1];
     B = [0.5*dt*dt dt]'*acc;
     % decide if velocity can be observed
     H_full = [1 0; 0 1];
-    if velocity_observe == 0
-        H = H_full(1,:);
-        R = R_full(1,1);
-    else
-        H = H_full;
-        R = R_full;
-    end
+    H = H_full(1,:);
+    R = R_full(1,1);
+
     %% Main Filter step
     %Step 1 prediction/a priori
     x_apriori = A*x_aposteriori_k+B;                 %project state ahead
@@ -86,13 +81,8 @@ function [x_aposteriori,P_aposteriori] = positionKalmanFilter1D(x_aposteriori_k,
     if gps_update == 1
         %K = P_apriori*H'*inv(H*P_apriori*H'+R);              %compute kalman gain
         K = (P_apriori*H')/(H*P_apriori*H'+R);
-        if velocity_observe == 0
-            x_aposteriori = x_apriori+K*(z(1,1)-H*x_apriori);        %update estimate via z
-            P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
-        else
-            x_aposteriori = x_apriori+K*(z(:,1)-H(1:2,1:2)*x_apriori);        %update estimate via z
-            P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
-        end
+        x_aposteriori = x_apriori+K*(z(1,1)-H*x_apriori);        %update estimate via z
+        P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
     else
        x_aposteriori = x_apriori;
        P_aposteriori = P_apriori;

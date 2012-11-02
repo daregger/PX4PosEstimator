@@ -4,13 +4,12 @@
 
 clear all
 close all
-clc
 
 %% Model
-f = 250;
-f_pos = 4;
+f = 70;
+f_pos = 1;
 dt = 1/f;   %Timestep
-m = 0.5;   %[kg]
+m = 0.448;   %[kg]
 angle_x_deg = 30;
 angle_x_rad = angle_x_deg*pi/180;
 angle_y_deg = 30;
@@ -30,6 +29,7 @@ A_y = [1 dt; 0 1];                         % system dynamics
 B_y = [0 F_y/m]';                           % input
 H_y = [1 0; 0 0];                          
 velocity_observe_y = 0;
+
 
 %% create measurement signal
 start = 0;
@@ -62,11 +62,11 @@ for k = 2:stop
     x_original_x(:,k) = A_x*x_original_x(:,k-1)+B_x*u_x(k-1);
 end
 % add white gauss noise to it
-sigma_x = [0.0001 1];
+sigma_x = [6.25 1.5];
 n1x = sigma_x(1).*randn(1,stop);
 n2x = sigma_x(2).*randn(1,stop);
 z_x(1,:) = x_original_x(1,:) + n1x(1,:);
-z_x(2,:) = x_original_x(2,:) + n2x(1,:);
+z_x(2,:) = 0%x_original_x(2,:) + n2x(1,:);
 
 
 %%%%%%%%%% y %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,44 +90,33 @@ for k = 2:stop
     x_original_y(:,k) = A_y*x_original_y(:,k-1)+B_y*u_y(k-1);
 end
 % add white gauss noise to it
-sigma_y = [5 1];
+sigma_y = [8.39 1.5];
 n1y = sigma_y(1).*randn(1,stop);
 n2y = sigma_y(2).*randn(1,stop);
 z_y(1,:) = x_original_y(1,:) + n1y(1,:);
-z_y(2,:) = x_original_y(2,:) + n2y(1,:);
+z_y(2,:) = 0%x_original_y(2,:) + n2y(1,:);
 
 
 %% Initial condition
-x_x(:,1) = [0 2]';                                % just a initial guess
+x_x(:,1) = [0 0]';                                % just a initial guess
 P_x = 10*ones(2);                                  % not equal 0!
 
-x_y(:,1) = [0 2]';                                % just a initial guess
+x_y(:,1) = [0 0]';                                % just a initial guess
 P_y = 10*ones(2);                                  % not equal 0!
 
 %%
-q_x = [2 0.0001];
-q_y = [2 0.0001];
-
-% %% Kalman Filter iteratiion x
-% for k = 1:stop-1
-%     %[x_x(:,k+1),P_x] = positionKalmanFilter1D(x_x(:,k),P_x,velocity_observe_x,pos_mask_x(k),F_x/m*u_x(k+1),z_x(:,k+1),sigma_x,q_x,dt);
-%     [x_x(:,k+1),P_x] = positionKalmanFilter1D(x_x(:,k),P_x,velocity_observe_x,pos_mask_x(k),0,z_x(:,k+1),sigma_x,q_x,dt);
-%     %[x_y(:,k+1),P_y] = positionKalmanFilter1D(x_y(:,k),P_y,velocity_observe_y,pos_mask_y(k),F_y/m*u_y(k+1),z_y(:,k+1),sigma_y,q_y,dt);
-%     [x_y(:,k+1),P_y] = positionKalmanFilter1D(x_y(:,k),P_y,velocity_observe_y,pos_mask_y(k),0,z_y(:,k+1),sigma_y,q_y,dt);
-% end
+q_x = [0.2 1];
+q_y = [0.3162 1];
 
 %% Kalman Filter iteratiion x
 for k = 1:stop-1
-    debug=F_x/m*u_x(k)
-    %[x_x(:,k+1),P_x] = positionKalmanFilter1D(x_x(:,k),P_x,velocity_observe_x,pos_mask_x(k),F_x/m*u_x(k+1),z_x(:,k+1),sigma_x,q_x,dt);
-    [x_x(:,k+1),P_x] = positionKalmanFilter1D(x_x(:,k),P_x,velocity_observe_x,pos_mask_x(k),0,z_x(1,k),sigma_x,q_x,dt);
-    %[x_y(:,k+1),P_y] = positionKalmanFilter1D(x_y(:,k),P_y,velocity_observe_y,pos_mask_y(k),F_y/m*u_y(k+1),z_y(:,k+1),sigma_y,q_y,dt);
-    [x_y(:,k+1),P_y] = positionKalmanFilter1D(x_y(:,k),P_y,velocity_observe_y,pos_mask_y(k),F_y/m*u_y(k),z_y(1,k),sigma_y,q_y,dt);
+    [x_x(:,k+1),P_x] = positionKalmanFilter1D(x_x(:,k),P_x,velocity_observe_x,pos_mask_x(k),F_x/m*u_x(k+1),z_x(:,k+1),sigma_x,q_x,dt);
+    [x_y(:,k+1),P_y] = positionKalmanFilter1D(x_y(:,k),P_y,velocity_observe_y,pos_mask_y(k),F_y/m*u_y(k+1),z_y(:,k+1),sigma_y,q_y,dt);
 end
-%% Kalman Filter iteratiion y
-for k = 1:stop-1
-  
-end
+
+%%
+plot(xt,F_x/m*u_x)
+
 %% Integral and Derivate of noisy measurement
 v_x = diff(z_x(1,:));
 p_x = cumsum(z_x(2,:));

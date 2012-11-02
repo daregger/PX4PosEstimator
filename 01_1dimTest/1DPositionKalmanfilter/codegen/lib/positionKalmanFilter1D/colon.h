@@ -1,14 +1,14 @@
 /*
- * positionKalmanFilter1D_terminate.h
+ * colon.h
  *
- * Code generation for function 'positionKalmanFilter1D_terminate'
+ * Code generation for function 'colon'
  *
  * C source code generated on: Fri Nov 02 17:08:09 2012
  *
  */
 
-#ifndef __POSITIONKALMANFILTER1D_TERMINATE_H__
-#define __POSITIONKALMANFILTER1D_TERMINATE_H__
+#ifndef __COLON_H__
+#define __COLON_H__
 /* Include files */
 #include <math.h>
 #include <stddef.h>
@@ -27,6 +27,6 @@
 /* Variable Definitions */
 
 /* Function Declarations */
-extern void positionKalmanFilter1D_terminate(void);
+extern void eml_signed_integer_colon(int32_T b, int32_T y_data[2], int32_T y_size[2]);
 #endif
-/* End of code generation (positionKalmanFilter1D_terminate.h) */
+/* End of code generation (colon.h) */

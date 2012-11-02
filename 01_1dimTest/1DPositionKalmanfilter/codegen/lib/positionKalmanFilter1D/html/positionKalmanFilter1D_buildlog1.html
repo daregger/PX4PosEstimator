@@ -31,7 +31,7 @@ div.tooltip { visibility: hidden; position: fixed;
 <td align="left" class="td-linebottomrt-gray" colspan="2">Build Parameters</td>
 </tr>
 <tr><td align="left" valign="top" class="td-linebottomrt">Build directory</td>
-<td align="left" valign="top" class="td-linebottomrt-link"><a href="matlab: cd('H:\0000_SAMA_PIXHAWK\08_PositionEstimator\01_1dimTest\codegen\lib\positionKalmanFilter1D')">H:\0000_SAMA_PIXHAWK\08_PositionEstimator\01_1dimTest\codegen\lib\positionKalmanFilter1D</a></td></tr>
+<td align="left" valign="top" class="td-linebottomrt-link"><a href="matlab: cd('H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\01_1dimTest\1DPositionKalmanfilter\codegen\lib\positionKalmanFilter1D')">H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\01_1dimTest\1DPositionKalmanfilter\codegen\lib\positionKalmanFilter1D</a></td></tr>
 <tr><td align="left" valign="top" class="td-linebottomrt">Make wrapper</td>
 <td align="left" valign="top" class="td-linebottomrt-link">.\positionKalmanFilter1D_rtw.bat</td></tr>
 <tr><td align="left" valign="top" class="td-linebottomrt">Make command</td>
@@ -42,42 +42,7 @@ div.tooltip { visibility: hidden; position: fixed;
 <tr><td align="left" class="td-linebottomrt-gray">Build Log</td></tr>
 <tr><td valign="top" class="td-script">
 <pre>
-<span class="td-line-number">    1   </span><span class="td-line-normal">Setting environment for using Microsoft Visual Studio 2010 x64 tools.</span>
-<span class="td-line-number">    2   </span><span class="td-line-normal"></span>
-<span class="td-line-number">    3   </span><span class="td-line-normal">Microsoft (R) Program Maintenance Utility Version 10.00.30319.01</span>
-<span class="td-line-number">    4   </span><span class="td-line-normal">Copyright (C) Microsoft Corporation.  All rights reserved.</span>
-<span class="td-line-number">    5   </span><span class="td-line-normal"></span>
-<span class="td-line-number">    6   </span><span class="td-line-normal">### Compiling positionKalmanFilter1D_initialize.c</span>
-<span class="td-line-number">    7   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 positionKalmanFilter1D_initialize.c</span>
-<span class="td-line-number">    8   </span><span class="td-line-normal">positionKalmanFilter1D_initialize.c</span>
-<span class="td-line-number">    9   </span><span class="td-line-normal">### Compiling positionKalmanFilter1D_terminate.c</span>
-<span class="td-line-number">   10   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 positionKalmanFilter1D_terminate.c</span>
-<span class="td-line-number">   11   </span><span class="td-line-normal">positionKalmanFilter1D_terminate.c</span>
-<span class="td-line-number">   12   </span><span class="td-line-normal">### Compiling positionKalmanFilter1D.c</span>
-<span class="td-line-number">   13   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 positionKalmanFilter1D.c</span>
-<span class="td-line-number">   14   </span><span class="td-line-normal">positionKalmanFilter1D.c</span>
-<span class="td-line-number">   15   </span><span class="td-line-normal">### Compiling rt_nonfinite.c</span>
-<span class="td-line-number">   16   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 rt_nonfinite.c</span>
-<span class="td-line-number">   17   </span><span class="td-line-normal">rt_nonfinite.c</span>
-<span class="td-line-number">   18   </span><span class="td-line-normal">### Compiling rtGetNaN.c</span>
-<span class="td-line-number">   19   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 rtGetNaN.c</span>
-<span class="td-line-number">   20   </span><span class="td-line-normal">rtGetNaN.c</span>
-<span class="td-line-number">   21   </span><span class="td-line-normal">### Compiling rtGetInf.c</span>
-<span class="td-line-number">   22   </span><span class="td-line-normal">	cl   -DUSE_RTMODEL /Od /Oy- -DMODEL=positionKalmanFilter1D -DRT -DNUMST=1  -DTID01EQ=0 -DNCSTATES=0  -DMT=0 -DHAVESTDIO   -c -DCRTAPI1=_cdecl -DCRTAPI2=_cdecl -nologo -GS -D_AMD64_=1 -DWIN64 -D_WIN64  -DWIN32 -D_WIN32 -W4 -D_WINNT -D_WIN32_WINNT=0x0500 -DNTDDI_VERSION=0x05000000 -D_WIN32_IE=0x0500 -DWINVER=0x0500  -D_MT -MT /wd4996 rtGetInf.c</span>
-<span class="td-line-number">   23   </span><span class="td-line-normal">rtGetInf.c</span>
-<span class="td-line-number">   24   </span><span class="td-line-normal">### Linking ...</span>
-<span class="td-line-number">   25   </span><span class="td-line-normal">	C:\PROGRA~1\MATLAB\R2012a\sys\perl\win32\bin\perl C:\PROGRA~1\MATLAB\R2012a\rtw\c\tools\mkvc_lnk.pl positionKalmanFilter1D.lnk positionKalmanFilter1D_initialize.obj positionKalmanFilter1D_terminate.obj positionKalmanFilter1D.obj rt_nonfinite.obj rtGetNaN.obj rtGetInf.obj    </span>
-<span class="td-line-number">   26   </span><span class="td-line-normal">	link -lib /OUT:positionKalmanFilter1D.lib @positionKalmanFilter1D.lnk </span>
-<span class="td-line-number">   27   </span><span class="td-line-normal">Microsoft (R) Library Manager Version 10.00.30319.01</span>
-<span class="td-line-number">   28   </span><span class="td-line-normal">Copyright (C) Microsoft Corporation.  All rights reserved.</span>
-<span class="td-line-number">   29   </span><span class="td-line-normal"></span>
-<span class="td-line-number">   30   </span><span class="td-line-normal">positionKalmanFilter1D_initialize.obj </span>
-<span class="td-line-number">   31   </span><span class="td-line-normal">positionKalmanFilter1D_terminate.obj </span>
-<span class="td-line-number">   32   </span><span class="td-line-normal">positionKalmanFilter1D.obj </span>
-<span class="td-line-number">   33   </span><span class="td-line-normal">rt_nonfinite.obj </span>
-<span class="td-line-number">   34   </span><span class="td-line-normal">rtGetNaN.obj </span>
-<span class="td-line-number">   35   </span><span class="td-line-normal">rtGetInf.obj </span>
-<span class="td-line-number">   36   </span><span class="td-line-normal">### Created static library positionKalmanFilter1D.lib</span>
+<span class="td-line-number">    1   </span><span class="td-line-normal">Compilation suppressed: generating code only.</span>
 </pre>
 </td></tr></table>
 </div>

@@ -42,7 +42,7 @@
       <param.mex.MemcpyThreshold>64</param.mex.MemcpyThreshold>
       <param.mex.general.EnableBLAS>true</param.mex.general.EnableBLAS>
       <param.mex.InitFltsAndDblsToZero>true</param.mex.InitFltsAndDblsToZero>
-      <param.grt.GenCodeOnly>false</param.grt.GenCodeOnly>
+      <param.grt.GenCodeOnly>true</param.grt.GenCodeOnly>
       <param.grt.paths.working>option.paths.working.project</param.grt.paths.working>
       <param.grt.paths.working.specified/>
       <param.grt.paths.build>option.paths.build.project</param.grt.paths.build>
@@ -114,7 +114,7 @@
     
       </param.globals>
       <param.mex.mainhtml/>
-      <param.grt.mainhtml>H:\0000_SAMA_PIXHAWK\08_PositionEstimator\01_1dimTest\codegen\lib\positionKalmanFilter1D\html\index.html</param.grt.mainhtml>
+      <param.grt.mainhtml>H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\01_1dimTest\1DPositionKalmanfilter\codegen\lib\positionKalmanFilter1D\html\index.html</param.grt.mainhtml>
       <param.RebuildBeforeTesting>true</param.RebuildBeforeTesting>
       <param.CallGeneratedCodeFromTest>true</param.CallGeneratedCodeFromTest>
       <param.DefaultTestFile/>
@@ -377,7 +377,6 @@
          <param.mex.MemcpyThreshold/>
          <param.mex.general.EnableBLAS/>
          <param.mex.InitFltsAndDblsToZero/>
-         <param.grt.GenCodeOnly/>
          <param.grt.paths.working/>
          <param.grt.paths.working.specified/>
          <param.grt.paths.build/>

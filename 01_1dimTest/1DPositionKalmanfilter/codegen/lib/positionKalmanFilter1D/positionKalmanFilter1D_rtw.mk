@@ -73,7 +73,7 @@ COMPILER_TOOL_CHAIN = vcx64
 #  EXTMODE_STATIC_SIZE - Size of static memory allocation buffer.
 
 MODEL                = positionKalmanFilter1D
-MODULES              = positionKalmanFilter1D_initialize.c positionKalmanFilter1D_terminate.c positionKalmanFilter1D.c rt_nonfinite.c rtGetNaN.c rtGetInf.c 
+MODULES              = positionKalmanFilter1D_initialize.c positionKalmanFilter1D_terminate.c positionKalmanFilter1D.c colon.c rt_nonfinite.c rtGetNaN.c rtGetInf.c 
 MAKEFILE             = positionKalmanFilter1D_rtw.mk
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2012a
 ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2012a
@@ -107,7 +107,7 @@ MODELLIB                  = positionKalmanFilter1D.lib
 MODELREF_LINK_LIBS        = 
 MODELREF_LINK_RSPFILE     = positionKalmanFilter1D_ref.rsp
 MODELREF_INC_PATH         = 
-RELATIVE_PATH_TO_ANCHOR   = H:\0SOT0X~N\0P7L7L~T\01G13P~M
+RELATIVE_PATH_TO_ANCHOR   = H:\0SOT0X~N\0BVTZ8~X\01G13P~M\10T1UW~9
 MODELREF_TARGET_TYPE      = rtw:lib
 
 !if "$(MATLAB_ROOT)" != "$(ALT_MATLAB_ROOT)"
@@ -133,8 +133,8 @@ MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 
 # Additional file include paths
 
-MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_PositionEstimator\01_1dimTest\codegen\lib\positionKalmanFilter1D
-MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_PositionEstimator\01_1dimTest
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\01_1dimTest\1DPositionKalmanfilter\codegen\lib\positionKalmanFilter1D
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\01_1dimTest\1DPositionKalmanfilter
 
 INCLUDE = .;$(RELATIVE_PATH_TO_ANCHOR);$(MATLAB_INCLUDES);$(INCLUDE);$(MODELREF_INC_PATH)
 

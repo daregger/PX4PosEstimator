@@ -90,7 +90,7 @@ function [x_aposteriori,P_aposteriori] = positionKalmanFilter1D(x_aposteriori_k,
             x_aposteriori = x_apriori+K*(z(1,1)-H*x_apriori);        %update estimate via z
             P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
         else
-            x_aposteriori = x_apriori+K*(z(:,1)-H(1:2,1:2)*x_apriori);        %update estimate via z
+            x_aposteriori = x_apriori+K*(z(:,1)-H*x_apriori);        %update estimate via z
             P_aposteriori = (eye(2)-K*H)*P_apriori;           %update error covariance
         end
     else
