@@ -33,12 +33,13 @@ mp=1e-6;
 Q=A*[0,0,0;0,0,0;0,0,cv]*A';
 R=mp*eye(1);
 
-x_aposteriori=[0;0;0];
+x_aposteriori_k=[0;0;0];
 K=dlqe(A,eye(3),C,Q,R);
 
 for i=1:length(z)
-    [x_aposteriori] = kalman_dlqe1(A,C,K,x_aposteriori,z(i))  
-    xp=[xp,x_aposteriori];   
+    [x_aposteriori] = kalman_dlqe1(A,C,K,x_aposteriori_k,z(i));
+    x_aposteriori_k = x_aposteriori;
+    xp=[xp,x_aposteriori_k];   
 end
 
 % discrete derivation of vicon pos for vicon vel

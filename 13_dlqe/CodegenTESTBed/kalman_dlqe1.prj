@@ -109,7 +109,7 @@
       <param.version>R2012a</param.version>
       <param.HasECoderFeatures>true</param.HasECoderFeatures>
       <param.mex.mainhtml/>
-      <param.grt.mainhtml>H:\0000_SAMA_PIXHAWK\13_dlqe\CodegenTESTBed\codegen\lib\kalman_dlqe1\html\index.html</param.grt.mainhtml>
+      <param.grt.mainhtml>H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\13_dlqe\CodegenTESTBed\codegen\lib\kalman_dlqe1\html\index.html</param.grt.mainhtml>
       <param.RebuildBeforeTesting>true</param.RebuildBeforeTesting>
       <param.CallGeneratedCodeFromTest>true</param.CallGeneratedCodeFromTest>
       <param.DefaultTestFile/>
@@ -169,7 +169,7 @@
           
                </Input>
           
-               <Input Name="x_aposteriori">
+               <Input Name="x_aposteriori_k">
             
                   <Class>single</Class>
             
@@ -357,8 +357,6 @@
          <param.grt.customcode.CustomSource/>
          <param.grt.customcode.CustomLibrary/>
          <param.grt.PostCodeGenCommand/>
-         <param.grt.TargetFunctionLibrary/>
-         <param.ert.TargetFunctionLibrary/>
          <param.SameHardware/>
          <var.instance.enabled.Production/>
          <var.instance.enabled.Target/>
