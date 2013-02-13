@@ -3,7 +3,7 @@
  *
  * Code generation for function 'kalman_dlqe1'
  *
- * C source code generated on: Wed Feb 13 19:32:50 2013
+ * C source code generated on: Wed Feb 13 20:34:32 2013
  *
  */
 
@@ -25,6 +25,6 @@
 /* Variable Definitions */
 
 /* Function Declarations */
-extern void kalman_dlqe1(const real32_T A[9], const real32_T C[3], const real32_T K[3], real32_T x_aposteriori[3], real32_T z);
+extern void kalman_dlqe1(const real32_T A[9], const real32_T C[3], const real32_T K[3], const real32_T x_aposteriori_k[3], real32_T z, real32_T x_aposteriori[3]);
 #endif
 /* End of code generation (kalman_dlqe1.h) */

@@ -3,7 +3,7 @@
  *
  * Code generation for function 'kalman_dlqe1_terminate'
  *
- * C source code generated on: Wed Feb 13 19:32:50 2013
+ * C source code generated on: Wed Feb 13 20:34:32 2013
  *
  */
 

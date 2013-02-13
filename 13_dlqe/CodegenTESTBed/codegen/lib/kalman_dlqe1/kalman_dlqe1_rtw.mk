@@ -107,7 +107,7 @@ MODELLIB                  = kalman_dlqe1.lib
 MODELREF_LINK_LIBS        = 
 MODELREF_LINK_RSPFILE     = kalman_dlqe1_ref.rsp
 MODELREF_INC_PATH         = 
-RELATIVE_PATH_TO_ANCHOR   = H:\0SOT0X~N\13_dlqe\CBJAI4~5
+RELATIVE_PATH_TO_ANCHOR   = H:\0SOT0X~N\0BVTZ8~X\13_dlqe\CBJAI4~5
 MODELREF_TARGET_TYPE      = rtw:lib
 
 !if "$(MATLAB_ROOT)" != "$(ALT_MATLAB_ROOT)"
@@ -133,8 +133,8 @@ MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 
 # Additional file include paths
 
-MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\13_dlqe\CodegenTESTBed\codegen\lib\kalman_dlqe1
-MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\13_dlqe\CodegenTESTBed
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\13_dlqe\CodegenTESTBed\codegen\lib\kalman_dlqe1
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);H:\0000_SAMA_PIXHAWK\08_GitPositionEstimator\13_dlqe\CodegenTESTBed
 
 INCLUDE = .;$(RELATIVE_PATH_TO_ANCHOR);$(MATLAB_INCLUDES);$(INCLUDE);$(MODELREF_INC_PATH)
 
